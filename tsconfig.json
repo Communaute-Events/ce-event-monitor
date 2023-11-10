@@ -1,0 +1,18 @@
+{
+    "ts-node": {
+        "files": true
+    },
+    "compilerOptions": {
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "baseUrl": "./",
+        "moduleResolution": "node",
+        "module": "CommonJS",
+        "moduleDetection": "force",
+        "outDir": "dist",
+        "target": "es2020"
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}

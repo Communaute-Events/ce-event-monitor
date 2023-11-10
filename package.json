@@ -1,0 +1,16 @@
+{
+  "name": "ce-event-monitor",
+  "version": "1.0.0",
+  "description": "Discord Selfbot that monitors servers to find events.",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "ts-node src/index.js",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js-selfbot-v13": "^2.14.12"
+  }
+}
