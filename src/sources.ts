@@ -20,15 +20,5 @@ export const EventSources: EventSource[] = [
             "1062143522209275904", // Notif. Short
             "1062174287554953226", // Notif. Crash Test
         ]
-    },
-    {
-        name: "Origaming Studios (Dev)",
-        guildId: "***REMOVED***",
-        admins: [
-            "***REMOVED***", // Origaming
-        ],
-        roles: [
-            "***REMOVED***", // Notif. Crash Test
-        ]
     }
 ]
