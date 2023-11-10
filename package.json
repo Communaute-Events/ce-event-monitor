@@ -4,13 +4,20 @@
   "description": "Discord Selfbot that monitors servers to find events.",
   "main": "src/index.ts",
   "scripts": {
-    "start": "ts-node src/index.js",
+    "start": "ts-node src/index.ts",
     "build": "tsc"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "discord.js-selfbot-v13": "^2.14.12"
+    "discord.js-selfbot-v13": "^2.14.12",
+    "dotenv": "^16.3.1",
+    "js-yaml": "^4.1.0",
+    "ws": "^8.14.2"
+  },
+  "optionalDependencies": {
+    "bufferutil": "^4.0.8",
+    "utf-8-validate": "^6.0.3"
   }
 }

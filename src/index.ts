@@ -1,41 +1,53 @@
-import { isSelfbot } from "./utilities";
+import "dotenv/config"
 
-const { Client, WebhookClient } = require('discord.js-selfbot-v13');
-const Config = require("../config/config.json");
+import { isSelfbot } from "./utilities";
+import { Client } from 'discord.js-selfbot-v13'
+import { WebSocketServer } from 'ws';
+import { EventSources } from "./sources";
+
 const client = new Client({
     checkUpdate: false
 });
 
-const webhookClient = new WebhookClient({ url: Config.webhook })
+const wss = new WebSocketServer({
+    port: process.env.port,
+})
+
+wss.on('connection',ws=>{
+    ws.send(`{"status":"online","timestamp":"${new Date().toISOString()}"}`)
+})
 
 client.once('ready', async () => {
     console.log(`${client.user.username} is ready!`);
 })
 
-client.on("messageCreate", async(msg) => {
+client.on("messageCreate", async (msg) => {
     if (isSelfbot(msg.author.id)) { return }
-    if (Config.adminIds.some((userId) => msg.author.id === userId) && (msg.content.includes("@everyone") || msg.content.includes("@here") || Config.eventRoles.some((roleId) => msg.content.includes(`<@&${roleId}>`)))) {
-        const embed = {
-            title: `<:alert:1171141887009239070> Nouvel Event! (${msg.guild.name})`,
-            color: 14427686,
-            description: `Un event à été détecté!\n\n**Serveur:** ${msg.guild.name}\n**Organisateur:** ${msg.author.displayName}`,
-            thumbnail: {
-                url: msg.guild.iconURL() || "https://i.pinimg.com/originals/3c/6c/cb/3c6ccb83716d1e4fb91d3082f6b21d77.png"
-            }
+    EventSources.forEach((source) => {
+        if (
+            source.admins.includes(msg.author.id) && msg.guild.id == source.guildId && /* Checks if the msg is from an admin in the event source*/ 
+            (source.roles.map(roleId => msg.content.includes(roleId)) || msg.content.includes("@everyone") || msg.content.includes("@here")) /* Checks if the msg pings an event role or @everyone/here*/
+        ) {
+            wss.clients.forEach(client=> {
+                client.send(JSON.stringify({
+                    eventSource: source,
+                    message: {
+                        data: msg.toJSON(),
+                        url: msg.url
+                    },
+                    author: {
+                        name: msg.author.displayName,
+                        author: msg.author.id
+                    },
+                    guild: {
+                        name: msg.guild.name,
+                        id: msg.guild.id
+                    },
+                    timeStamp: new Date().toISOString()
+                }))
+            })
         }
-        const embed2 = {
-            description: `>>> ${msg.content}\n\n**Pour ne pas louper des informations, rendez-vous ici: ${msg.url}**`,
-            color: 14368832,
-            timestamp: new Date().toISOString(),
-        }
-        webhookClient.send({
-            content: "<@&1112132727475544144>",
-            username: "Event Alerts",
-            avatarURL: "https://i.imgur.com/tbjLyKE.png",
-            embeds: [embed, embed2]
-        })
-        console.log(`New event at: ${new Date().toISOString()} from the server: ${msg.guild.name}`)
-    }
+    })
 })
 
-client.login(Config.token);
+client.login(process.env.token);
