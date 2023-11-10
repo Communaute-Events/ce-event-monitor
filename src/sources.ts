@@ -23,12 +23,12 @@ export const EventSources: EventSource[] = [
     },
     {
         name: "Origaming Studios (Dev)",
-        guildId: "***REMOVED***",
+        guildId: "1149082137123880990",
         admins: [
-            "***REMOVED***", // Origaming
+            "657938099581616139", // Origaming
         ],
         roles: [
-            "***REMOVED***", // Notif. Crash Test
+            "1171138803411472394", // Notif. Crash Test
         ]
     }
 ]

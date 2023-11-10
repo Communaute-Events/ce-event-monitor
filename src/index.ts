@@ -14,7 +14,7 @@ const wss = new WebSocketServer({
 })
 
 wss.on('connection',ws=>{
-    ws.send(`{"status":"online","timestamp":"${new Date().toISOString()}"}`)
+    ws.send(`{"_type":"status","status":"online","timestamp":"${new Date().toISOString()}"}`)
 })
 
 client.once('ready', async () => {
@@ -30,6 +30,7 @@ client.on("messageCreate", async (msg) => {
         ) {
             wss.clients.forEach(client=> {
                 client.send(JSON.stringify({
+                    _type: "event",
                     eventSource: source,
                     message: {
                         data: msg.toJSON(),
@@ -37,7 +38,7 @@ client.on("messageCreate", async (msg) => {
                     },
                     author: {
                         name: msg.author.displayName,
-                        author: msg.author.id
+                        id: msg.author.id
                     },
                     guild: {
                         name: msg.guild.name,
