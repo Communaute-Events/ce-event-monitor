@@ -9,3 +9,14 @@ Example:
 ```
 
 Please note that the bot cannot join servers automatically and needs to be added manually to them.
+
+## Sources
+
+Sources contain informations about a specifc event server (admins, event roles, event channels, etc...)
+
+### Building
+
+To get a compiled version of the code, run `npm run build`. The code is pretty simple so you will only get **3** files.
+
+### Caution
+This is against discord TOS, so use it at your own risk.
