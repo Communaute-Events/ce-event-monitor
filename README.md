@@ -1,6 +1,6 @@
 # CE Events Monitor
 
-A selfbot that will monitor discord servers from a list of sources (see [sources.ts](https://github.com/Communaute-Events/ce-event-monitor/blob/main/src/sources.ts)).
+A selfbot that will monitor discord servers from a list of sources (see [sources.json](https://github.com/Communaute-Events/ce-event-monitor/blob/main/src/sources.json)).
 
 It will host a WebSocket server, and broadcast a message for each detected events containing information about it.
 Example:
