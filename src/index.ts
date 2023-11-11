@@ -3,7 +3,7 @@ import "dotenv/config"
 import { isSelfbot } from "./utilities";
 import { Client } from 'discord.js-selfbot-v13'
 import { WebSocketServer } from 'ws';
-import { EventSources } from "./sources";
+import EventSources from "./sources.json";
 
 const client = new Client({
     checkUpdate: false
