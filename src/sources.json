@@ -2,7 +2,7 @@
     {
         "name": "Évenement - FuzeIII",
         "description": "Le serveur d'évents du youtuber FuzeIII",
-        "icon": "🚀",
+        "emoji": "🚀",
         "guildId": "833066646737780778",
         "admins": [
             "165038038509027329",
@@ -19,7 +19,7 @@
     {
         "name": "Communauté Events",
         "description": "Le serveur officiel du bot Discord (support, dev, etc...)",
-        "icon": "🖥️",
+        "emoji": "🖥️",
         "guildId": "1171557764703723611",
         "admins": [
             "1148991156571611197",
