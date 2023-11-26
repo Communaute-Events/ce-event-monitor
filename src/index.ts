@@ -25,7 +25,7 @@ client.on("messageCreate", async (msg) => {
     if (isSelfbot(msg.author.id)) { return; }
     EventSources.forEach((source) => {
         // If the message is in the event source and the author is an admin
-        if (msg.guild.id === source.guildId && source.admins.includes(msg.author.id)) {
+        if (msg.guild.id === source.guildId && source.admins.includes(msg.author.id) && source.channels.includes(msg.channel.id)) {
             // @ts-expect-error
             // If mentionned role is in source or there is a @everyone/here
             if (source.roles.some(roleId => msg.toJSON().mentions.roles.includes(roleId)) || msg.content.includes("@here") || msg.content.includes("@everyone")) {
