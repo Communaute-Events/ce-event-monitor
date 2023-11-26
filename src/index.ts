@@ -43,7 +43,8 @@ client.on("messageCreate", async (msg) => {
                         },
                         guild: {
                             name: msg.guild.name,
-                            id: msg.guild.id
+                            id: msg.guild.id,
+                            iconUrl: msg.guild.iconURL()
                         },
                         timeStamp: new Date().toISOString()
                     }));
