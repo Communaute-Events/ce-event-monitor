@@ -70,5 +70,100 @@
             "885147409431277658",
             "1190739394412433502"
         ]
+    },
+    {
+        "name": "Communauté - FuzeIII",
+        "description": "Serveur officiel de Fuze",
+        "emoji": "🌜",
+        "guildId": "350185814640295936",
+        "channels": [
+            "1044978620864663602"
+        ],
+        "admins": [
+            "405784596450639873",
+            "165038038509027329",
+            "773175706145652747",
+            "240105447611170817",
+            "855613214498226177",
+            "330017995525062666",
+            "252237757076865024"
+        ],
+        "roles": [
+
+        ]
+    },
+    {
+        "name": "PokeDraco",
+        "description": "Serveur officiel de PokeDraco",
+        "emoji": "🪩",
+        "guildId": "388412311431282688",
+        "channels": [
+            "1156633024713212005"
+        ],
+        "admins": [
+            "322447940587356162",
+            "195520862009425921"
+        ],
+        "roles": [
+            "802941243188314122"
+        ]
+    },
+    {
+        "name": "ApazTV / Nulcraft",
+        "description": "Serveur de ApazTV / Nulcraft",
+        "emoji": "📺",
+        "guildId": "813460690505170964",
+        "channels": [
+            "1072265339812982794"
+        ],
+        "admins": [
+            "405784596450639873",
+            "287586722525609984"
+        ],
+        "roles": [
+            "1072577160344244234"
+        ]
+    },
+    {
+        "name": "Lined Event",
+        "description": "Serveur event de Lined",
+        "emoji": "📈",
+        "guildId": "1081512087240581120",
+        "channels": [
+            "1081512087852953675"
+        ],
+        "admins": [
+            "270606925002047498"
+        ],
+        "roles": []
+    },
+    {
+        "name": "EVENT Sohran",
+        "description": "Serveur event de Sohran",
+        "emoji": "🦒",
+        "guildId": "1101914734921515209",
+        "channels": [
+            "1101914736041402511"
+        ],
+        "admins": [
+            "266953726600675340"
+        ],
+        "roles": []
+    },
+    {
+        "name": "Sandblocks Universe",
+        "description": "Serveur d'évents / tests de SandBlocks Studio",
+        "emoji": "🥪",
+        "guildId": "1082279256068997150",
+        "channels": [
+            "1082312696034250852"
+        ],
+        "admins": [
+            "173852368864018432",
+            "773175706145652747"
+        ],
+        "roles": [
+            "1082279703223730187"
+        ]
     }
 ]
