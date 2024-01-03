@@ -3,7 +3,14 @@ import "dotenv/config"
 import { isSelfbot } from "./utilities";
 import { Client } from 'discord.js-selfbot-v13'
 import { WebSocketServer } from 'ws';
-import EventSources from "./sources.json";
+import fs from "fs"
+
+let EventSources = JSON.parse(fs.readFileSync("data/sources.json","utf-8") || "[]")
+fetch("https://raw.githubusercontent.com/Communaute-Events/ce-event-monitor/main/data/sources.json").then(res => res.json().then(res => {
+    EventSources = res
+})).catch(err => {
+    console.log("[Event Monitor] An error occured while fetching event sources. The data/sources.json file will be used.\n\n" + err)
+})
 
 const client = new Client({
     checkUpdate: false
@@ -18,7 +25,7 @@ wss.on('connection', ws => {
 })
 
 client.once('ready', async () => {
-    console.log(`${client.user.username} is ready!`);
+    console.log(`[Event Monitor] ${client.user.username} is ready!`);
 })
 
 client.on("messageCreate", async (msg) => {
