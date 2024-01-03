@@ -5,6 +5,9 @@ import { Client } from 'discord.js-selfbot-v13'
 import { WebSocketServer } from 'ws';
 import fs from "fs"
 
+// import so typescript includes the file
+import evsrc from "../data/sources.json"
+
 let EventSources = JSON.parse(fs.readFileSync("data/sources.json","utf-8") || "[]")
 fetch("https://raw.githubusercontent.com/Communaute-Events/ce-event-monitor/main/data/sources.json").then(res => res.json().then(res => {
     EventSources = res
