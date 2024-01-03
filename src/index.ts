@@ -11,6 +11,8 @@ fetch("https://raw.githubusercontent.com/Communaute-Events/ce-event-monitor/main
 })).catch(err => {
     console.log("[Event Monitor] An error occured while fetching event sources. The data/sources.json file will be used.\n\n" + err)
 })
+console.log("[Event Monitor] Sources loaded.")
+console.log(EventSources.map(src => `   -> ${src.name}`).join("\n"))
 
 const client = new Client({
     checkUpdate: false
