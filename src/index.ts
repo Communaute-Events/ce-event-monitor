@@ -8,11 +8,13 @@ import fs from "fs"
 let EventSources = JSON.parse(fs.readFileSync("data/sources.json","utf-8") || "[]")
 fetch("https://raw.githubusercontent.com/Communaute-Events/ce-event-monitor/main/data/sources.json").then(res => res.json().then(res => {
     EventSources = res
+    console.log("[Event Monitor] Sources loaded.")
+    console.log(EventSources.map(src => `   -> ${src.name}`).join("\n"))
 })).catch(err => {
     console.log("[Event Monitor] An error occured while fetching event sources. The data/sources.json file will be used.\n\n" + err)
+    console.log("[Event Monitor] Sources loaded.")
+    console.log(EventSources.map(src => `   -> ${src.name}`).join("\n"))
 })
-console.log("[Event Monitor] Sources loaded.")
-console.log(EventSources.map(src => `   -> ${src.name}`).join("\n"))
 
 const client = new Client({
     checkUpdate: false
