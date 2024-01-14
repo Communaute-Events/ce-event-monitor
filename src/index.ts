@@ -74,6 +74,7 @@ client.on("messageCreate", async (msg) => {
             }
         }
         // Checks for maps && checks for link in message or file
+        if (!source.maps) return;
         if (msg.guild.id === source.guildId && source.admins.includes(msg.author.id) && source.maps.includes(msg.channel.id)) {
             if (new RegExp("([a-zA-Z0-9]+://)?([a-zA-Z0-9_]+:[a-zA-Z0-9_]+@)?([a-zA-Z0-9.-]+\\.[A-Za-z]{2,4})(:[0-9]+)?(/.*)?").test(msg.content) || msg.attachments.size > 0) {
                 sendMessage(JSON.stringify({
